@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeenPlanner</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@600;700&family=Inter:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">TeenPlanner</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="daily.html">Daily Planner</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="habits.html">Habits</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Placeholder -->
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 class="tagline">Plan smart. Dream big.</h1>
+      <a href="daily.html" class="cta-btn">Start Planning</a>
+    </section>
+    <!-- Preview Cards Section -->
+    <section class="preview-cards">
+      <div class="preview-card" data-feature="planner">
+        <div class="preview-icon"><i data-feather="calendar"></i></div>
+        <h3>Daily Planner</h3>
+        <p>Stay organized and focused with a beautiful, intuitive daily schedule.</p>
+        <a href="daily.html" class="view-btn">View</a>
+      </div>
+      <div class="preview-card" data-feature="habits">
+        <div class="preview-icon"><i data-feather="check-square"></i></div>
+        <h3>Habit Tracker</h3>
+        <p>Build great habits and track your progress with rewarding visuals.</p>
+        <a href="habits.html" class="view-btn">View</a>
+      </div>
+      <div class="preview-card" data-feature="goals">
+        <div class="preview-icon"><i data-feather="target"></i></div>
+        <h3>Goal Board</h3>
+        <p>Dream big and set goals you can actually achieve, one step at a time.</p>
+        <a href="goals.html" class="view-btn">View</a>
+      </div>
+    </section>
+
+    <!-- Daily Motivational Quote Card -->
+    <section class="quote-card" id="quoteCard">
+      <div class="quote-icon"><i data-feather="star"></i></div>
+      <blockquote class="quote-text" id="quoteText">“You are capable of amazing things.”</blockquote>
+      <div class="quote-author" id="quoteAuthor">— Unknown</div>
+    </section>
+
+    <!-- Testimonial Slider -->
+    <section class="testimonial-slider" id="testimonialSlider">
+      <button class="testimonial-arrow left" id="testimonialPrev" aria-label="Previous testimonial"><i data-feather="chevron-left"></i></button>
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-avatar"><i data-feather="user"></i></div>
+          <blockquote>“TeenPlanner makes planning my day fun and easy!”</blockquote>
+          <div class="testimonial-name">Alex, 16</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-avatar"><i data-feather="user"></i></div>
+          <blockquote>“The Habit Tracker keeps me motivated every week.”</blockquote>
+          <div class="testimonial-name">Jamie, 15</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-avatar"><i data-feather="user"></i></div>
+          <blockquote>“I love the colors and how easy it is to use!”</blockquote>
+          <div class="testimonial-name">Taylor, 17</div>
+        </div>
+      </div>
+      <button class="testimonial-arrow right" id="testimonialNext" aria-label="Next testimonial"><i data-feather="chevron-right"></i></button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

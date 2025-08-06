@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habits | TeenPlanner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@600;700&family=Inter:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">TeenPlanner</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="daily.html">Daily Planner</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="habits.html">Habits</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="section">
+      <div class="habit-tracker-container">
+        <aside class="habit-list-sidebar">
+          <h3 class="habit-list-title">My Habits</h3>
+          <ul class="habit-list">
+            <li class="habit-list-item active"><span class="habit-icon"><i data-feather="check-circle"></i></span> Drink Water</li>
+            <li class="habit-list-item"><span class="habit-icon"><i data-feather="sun"></i></span> Morning Stretch</li>
+            <li class="habit-list-item"><span class="habit-icon"><i data-feather="book"></i></span> Read 10 min</li>
+            <!-- More habits dynamically -->
+          </ul>
+          <button class="add-habit-btn"><i data-feather="plus-circle"></i> Add Habit</button>
+        </aside>
+        <div class="habit-calendar-area">
+          <div class="active-habit-display" style="display:flex;align-items:center;gap:0.7em;margin-bottom:0.7em;">
+            <span class="active-habit-icon" style="font-size:1.5em;"><i id="activeHabitIcon" data-feather="check-circle"></i></span>
+            <span class="active-habit-name" id="activeHabitName" style="font-size:1.09em;font-family:'Poppins','Rubik',Arial,sans-serif;font-weight:600;color:var(--color-link);">Drink Water</span>
+          </div>
+          <div class="calendar-header">
+            <span class="calendar-month">2025 Year View</span>
+          </div>
+          <div class="year-calendar-rows">
+            <div class="calendar-month-row" id="calendarMonthRow1"></div>
+            <div class="calendar-month-row" id="calendarMonthRow2"></div>
+            <div class="calendar-month-row" id="calendarMonthRow3"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Add Habit Modal -->
+      <div id="addHabitOverlay" class="modal-overlay" tabindex="-1" style="display:none;"></div>
+      <div id="addHabitModal" class="modal habit-modal" tabindex="-1" style="display:none;">
+        <button class="modal-close" id="closeAddHabitModal" aria-label="Close">&times;</button>
+        <h3>Add New Habit</h3>
+        <form id="addHabitForm">
+          <label for="habitName">Habit Name</label>
+          <input type="text" id="habitName" name="habitName" maxlength="32" required autocomplete="off" />
+          <label for="habitIcon">Icon</label>
+          <select id="habitIcon" name="habitIcon">
+            <option value="check-circle">Check</option>
+            <option value="sun">Sun</option>
+            <option value="book">Book</option>
+            <option value="activity">Activity</option>
+            <option value="music">Music</option>
+            <option value="heart">Heart</option>
+            <option value="star">Star</option>
+            <option value="smile">Smile</option>
+          </select>
+          <button type="submit" class="save-habit-btn">Save Habit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/habits.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

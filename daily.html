@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Planner | TeenPlanner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@600;700&family=Inter:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- Header Include -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">TeenPlanner</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="daily.html">Daily Planner</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="habits.html">Habits</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="section">
+      <div class="planner-wrapper">
+        <!-- Date Selector -->
+        <div class="planner-row">
+          <div class="planner-card planner-date fade-in-scroll">
+            <label for="planner-date-input">Date:</label>
+            <input type="date" id="planner-date-input" class="date-input" />
+          </div>
+          <!-- PDF Export Button -->
+          <button class="export-btn" id="pdfExportBtn"><i data-feather="download"></i> Download My Day</button>
+        </div>
+        <div class="planner-grid">
+          <!-- Hourly Schedule -->
+          <div class="planner-card schedule-card fade-in-scroll">
+            <h3>Schedule</h3>
+            <div class="hourly-blocks" id="hourlyBlocks">
+              <!-- JS will render 7:00am-10:00pm blocks -->
+            </div>
+          </div>
+          <!-- To-Do List -->
+          <div class="planner-card todo-card fade-in-scroll">
+            <h3>To-Do List</h3>
+            <form id="todoForm" class="todo-form todo-form-top">
+  <span class="floating-label"><input type="text" id="todoInput" class="todo-input" placeholder=" " required /><label for="todoInput">Add a new task...</label></span>
+  <button type="submit" class="add-btn"><i data-feather="plus"></i></button>
+</form>
+<div class="todo-section">
+  <div class="todo-tasks">
+    <h4>Tasks</h4>
+    <ul class="todo-list" id="todoList"></ul>
+  </div>
+  <div class="todo-completed">
+    <h4>Completed</h4>
+    <ul class="completed-list" id="completedList"></ul>
+  </div>
+</div>
+          </div>
+          <!-- Top 3 Priorities Widget -->
+          <div class="planner-card priorities-card fade-in-scroll">
+            <h3>Top 3 Priorities <span class="priority-icon"><i data-feather="star"></i></span></h3>
+            <ol class="priorities-list" id="prioritiesList">
+              <li><span class="floating-label"><input type="text" maxlength="48" placeholder=" " id="priority1" /><label for="priority1"></label></span></li>
+              <li><span class="floating-label"><input type="text" maxlength="48" placeholder=" " id="priority2" /><label for="priority2"></label></span></li>
+              <li><span class="floating-label"><input type="text" maxlength="48" placeholder=" " id="priority3" /><label for="priority3"></label></span></li>
+            </ol>
+          </div>
+        </div>
+        <!-- Daily Thought Prompt -->
+        <div class="planner-card thought-card fade-in-scroll">
+          <h3>Daily Thought</h3>
+          <label for="thoughtInput">What are you proud of today?</label>
+          <span class="floating-label"><textarea id="thoughtInput" maxlength="220" placeholder=" " rows="2"></textarea><label for="thoughtInput">Write your daily reflection...</label></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/daily.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>
