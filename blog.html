@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Primary Meta Tags -->
+  <title>Productivity Blog for Teens | TeenPlanner - Tips, Tricks & Study Hacks</title>
+  <meta name="title" content="Productivity Blog for Teens | TeenPlanner - Tips, Tricks & Study Hacks" />
+  <meta name="description" content="Free productivity tips, study hacks, time management strategies, and motivation for teens. Learn how to be more productive, ace your exams, and achieve your goals." />
+  <meta name="keywords" content="teen productivity blog, study tips, productivity hacks, time management for teens, student productivity, study hacks" />
+  <link rel="canonical" href="https://teenplanner.com/blog.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://teenplanner.com/blog.html" />
+  <meta property="og:title" content="Productivity Blog for Teens | TeenPlanner" />
+  <meta property="og:description" content="Free productivity tips, study hacks, and time management strategies for teens." />
+  <meta property="og:image" content="https://teenplanner.com/assets/images/blog-preview.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://teenplanner.com/blog.html" />
+  <meta name="twitter:title" content="Productivity Blog for Teens | TeenPlanner" />
+  <meta name="twitter:description" content="Free productivity tips and study hacks for students." />
+
+  <!-- Mobile Web App -->
+  <meta name="theme-color" content="#6c63ff" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "TeenPlanner Blog",
+    "description": "Productivity tips, study hacks, and motivation for teenagers",
+    "url": "https://teenplanner.com/blog.html"
+  }
+  </script>
+
+  <!-- Performance: Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- Google Fonts with optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@600;700&family=Inter:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons" defer></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .blog-hero {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .blog-hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-link);
+      margin-bottom: 1rem;
+    }
+    .blog-hero p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .blog-grid {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .blog-card {
+      background: var(--color-card);
+      border-radius: var(--radius-2xl);
+      padding: 0;
+      box-shadow: var(--color-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(108, 99, 255, 0.15);
+    }
+    .blog-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 2rem;
+      color: white;
+    }
+    .blog-date {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+    .blog-card h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      margin: 0;
+      color: white;
+    }
+    .blog-content {
+      padding: 2rem;
+    }
+    .blog-excerpt {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .read-more {
+      background: var(--color-link);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+    .read-more:hover {
+      background: #5a52d5;
+    }
+    .blog-post-full {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .post-content {
+      background: var(--color-card);
+      border-radius: var(--radius-2xl);
+      padding: 3rem;
+      box-shadow: var(--color-shadow);
+      line-height: 1.8;
+      color: #444;
+    }
+    .post-content h3 {
+      font-family: 'Rubik', sans-serif;
+      color: var(--color-link);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    .post-content ul {
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+    }
+    .post-content li {
+      margin-bottom: 0.8rem;
+    }
+    .post-content strong {
+      color: var(--color-link);
+    }
+    @media (max-width: 700px) {
+      .blog-hero h1 {
+        font-size: 2rem;
+      }
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      .post-content {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">TeenPlanner</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="daily.html">Daily Planner</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="habits.html">Habits</a></li>
+          <li><a href="examples.html">Examples</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="templates.html">Templates</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="blog-hero">
+      <h1>Productivity Tips & Study Hacks</h1>
+      <p>Level up your productivity game with practical tips, study strategies, and motivation designed specifically for teens.</p>
+    </section>
+
+    <section class="blog-grid">
+      <!-- Blog Post 1 -->
+      <article class="blog-card">
+        <div class="blog-header">
+          <div class="blog-date">November 17, 2025</div>
+          <h2>10 Study Hacks Every Student Needs to Know</h2>
+        </div>
+        <div class="blog-content">
+          <p class="blog-excerpt">Stop studying harder and start studying smarter. These 10 proven study hacks will help you learn faster, remember more, and ace your exams with less stress.</p>
+          <a href="#post-1" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 2 -->
+      <article class="blog-card">
+        <div class="blog-header">
+          <div class="blog-date">November 15, 2025</div>
+          <h2>The Ultimate Guide to Time Blocking for Teens</h2>
+        </div>
+        <div class="blog-content">
+          <p class="blog-excerpt">Time blocking is the secret weapon of top students. Learn how to schedule your day like a pro and accomplish more in less time.</p>
+          <a href="#post-2" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 3 -->
+      <article class="blog-card">
+        <div class="blog-header">
+          <div class="blog-date">November 12, 2025</div>
+          <h2>How to Build a Morning Routine That Actually Works</h2>
+        </div>
+        <div class="blog-content">
+          <p class="blog-excerpt">Your morning sets the tone for your entire day. Discover how to create a morning routine that energizes you and sets you up for success.</p>
+          <a href="#post-3" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 4 -->
+      <article class="blog-card">
+        <div class="blog-header">
+          <div class="blog-date">November 10, 2025</div>
+          <h2>Defeating Procrastination: The 2-Minute Rule</h2>
+        </div>
+        <div class="blog-content">
+          <p class="blog-excerpt">Procrastination is the enemy of productivity. Learn the simple 2-minute rule that makes starting any task effortless.</p>
+          <a href="#post-4" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 5 -->
+      <article class="blog-card">
+        <div class="blog-header">
+          <div class="blog-date">November 8, 2025</div>
+          <h2>The Power of the Pomodoro Technique</h2>
+        </div>
+        <div class="blog-content">
+          <p class="blog-excerpt">Work for 25 minutes, break for 5. This simple technique can double your productivity and reduce burnout. Here's how to use it.</p>
+          <a href="#post-5" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 6 -->
+      <article class="blog-card">
+        <div class="blog-header">
+          <div class="blog-date">November 5, 2025</div>
+          <h2>Digital Detox: Managing Screen Time for Better Focus</h2>
+        </div>
+        <div class="blog-content">
+          <p class="blog-excerpt">Your phone is killing your productivity. Learn practical strategies to reduce screen time and reclaim your focus.</p>
+          <a href="#post-6" class="read-more">Read More →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Full Blog Posts -->
+    <section class="blog-post-full" id="post-1" style="display:none;">
+      <div class="post-content">
+        <h2 style="font-family: 'Poppins', sans-serif; font-size: 2rem; color: var(--color-link); margin-bottom: 1rem;">10 Study Hacks Every Student Needs to Know</h2>
+        <div class="blog-date" style="margin-bottom: 2rem;">November 17, 2025</div>
+
+        <p>Studying doesn't have to be painful. These 10 science-backed study hacks will help you learn faster and remember more:</p>
+
+        <h3>1. The Feynman Technique</h3>
+        <p>Explain concepts in simple terms as if teaching a child. If you can't explain it simply, you don't understand it well enough.</p>
+
+        <h3>2. Active Recall</h3>
+        <p>Instead of re-reading notes, test yourself. Close your book and write down everything you remember.</p>
+
+        <h3>3. Spaced Repetition</h3>
+        <p>Review material at increasing intervals: 1 day, 3 days, 1 week, 1 month. This locks information into long-term memory.</p>
+
+        <h3>4. The Cornell Note-Taking Method</h3>
+        <p>Divide your page: notes on right, key questions on left, summary at bottom. Review by covering notes and answering questions.</p>
+
+        <h3>5. Study in Short Bursts</h3>
+        <p>Your brain retains more from four 30-minute sessions than one 2-hour marathon. Take breaks!</p>
+
+        <h3>6. Teach Someone Else</h3>
+        <p>Teaching forces you to organize information clearly. Explain concepts to friends, family, or even your pet.</p>
+
+        <h3>7. Use Mnemonics</h3>
+        <p>Create memorable acronyms, rhymes, or stories. "My Very Educated Mother Just Served Us Nachos" for planets.</p>
+
+        <h3>8. Practice Past Papers</h3>
+        <p>The best way to prepare for a test is to practice with similar questions. Find old exams and time yourself.</p>
+
+        <h3>9. Study Before Sleep</h3>
+        <p>Your brain consolidates memories during sleep. Review key concepts right before bed.</p>
+
+        <h3>10. Change Your Study Location</h3>
+        <p>Studying in different environments helps your brain form stronger memories. Library, coffee shop, park—mix it up!</p>
+
+        <p><strong>Remember:</strong> The best study hack is consistency. Use these techniques regularly, and you'll see massive improvements!</p>
+      </div>
+    </section>
+
+    <section class="blog-post-full" id="post-2" style="display:none;">
+      <div class="post-content">
+        <h2 style="font-family: 'Poppins', sans-serif; font-size: 2rem; color: var(--color-link); margin-bottom: 1rem;">The Ultimate Guide to Time Blocking for Teens</h2>
+        <div class="blog-date" style="margin-bottom: 2rem;">November 15, 2025</div>
+
+        <p>Time blocking is like Tetris for your schedule. Instead of hoping you'll find time for things, you assign specific time blocks to specific tasks. Here's how to do it:</p>
+
+        <h3>What is Time Blocking?</h3>
+        <p>Time blocking means dividing your day into chunks and dedicating each chunk to a specific activity. No multitasking, no distractions—just focused work.</p>
+
+        <h3>How to Get Started</h3>
+        <ul>
+          <li><strong>Identify Your Non-Negotiables:</strong> School, sleep, meals, sports practice</li>
+          <li><strong>List Your Tasks:</strong> Everything you need to accomplish this week</li>
+          <li><strong>Estimate Time:</strong> How long will each task realistically take?</li>
+          <li><strong>Schedule Blocks:</strong> Assign tasks to specific time slots</li>
+          <li><strong>Include Breaks:</strong> 5-10 minutes between blocks to recharge</li>
+        </ul>
+
+        <h3>Example Daily Schedule</h3>
+        <ul>
+          <li><strong>6:30-7:00 AM:</strong> Morning routine (shower, breakfast)</li>
+          <li><strong>7:00-7:30 AM:</strong> Review today's schedule, pack bag</li>
+          <li><strong>7:30 AM-3:00 PM:</strong> School</li>
+          <li><strong>3:00-4:00 PM:</strong> Decompress time (snack, social media)</li>
+          <li><strong>4:00-5:30 PM:</strong> Homework (hardest subjects first)</li>
+          <li><strong>5:30-6:30 PM:</strong> Dinner + family time</li>
+          <li><strong>6:30-7:30 PM:</strong> Passion project or hobby</li>
+          <li><strong>7:30-8:30 PM:</strong> Finish remaining homework</li>
+          <li><strong>8:30-9:30 PM:</strong> Free time (gaming, reading, friends)</li>
+          <li><strong>9:30-10:00 PM:</strong> Wind down (plan tomorrow, journal)</li>
+          <li><strong>10:00 PM:</strong> Lights out</li>
+        </ul>
+
+        <h3>Pro Tips</h3>
+        <ul>
+          <li><strong>Color Code:</strong> Use different colors for school, hobbies, self-care, etc.</li>
+          <li><strong>Be Flexible:</strong> Life happens. Don't stress if you need to adjust</li>
+          <li><strong>Batch Similar Tasks:</strong> Do all your reading at once, all math problems together</li>
+          <li><strong>Protect Your Blocks:</strong> Treat time blocks like appointments. Don't cancel on yourself!</li>
+        </ul>
+
+        <p><strong>Try it for one week</strong> using TeenPlanner's daily schedule. You'll be amazed at how much more you accomplish!</p>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 1.5rem; text-align: center; border-radius: 1.5rem; margin: 3rem auto; max-width: 1000px;">
+      <h2 style="font-family: 'Poppins', sans-serif; font-size: 2rem; margin-bottom: 1rem;">Ready to Put These Tips Into Action?</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">Use TeenPlanner to organize your day, track your habits, and achieve your goals.</p>
+      <a href="daily.html" style="background: white; color: #667eea; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: inline-block; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">Start Planning Today</a>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    feather.replace();
+
+    // Simple blog post navigation
+    document.querySelectorAll('.read-more').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const postId = link.getAttribute('href');
+        document.querySelectorAll('.blog-grid, .blog-post-full').forEach(el => {
+          el.style.display = 'none';
+        });
+        document.querySelector(postId).style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
