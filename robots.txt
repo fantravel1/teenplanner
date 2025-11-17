@@ -1,0 +1,19 @@
+# TeenPlanner - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://teenplanner.com/sitemap.xml
+
+# Disallow crawling of assets that don't need indexing
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Allow all other content
+Allow: /*.html
+Allow: /index.html
+Allow: /daily.html
+Allow: /goals.html
+Allow: /habits.html
+Allow: /resources.html
+Allow: /about.html

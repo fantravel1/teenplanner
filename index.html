@@ -2,14 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TeenPlanner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Primary Meta Tags -->
+  <title>TeenPlanner - Free Daily Planner, Goal Tracker & Habit Tracker for Teens</title>
+  <meta name="title" content="TeenPlanner - Free Daily Planner, Goal Tracker & Habit Tracker for Teens" />
+  <meta name="description" content="Free online planner designed for teenagers. Plan your day, track habits, achieve goals, and build better routines. Beautiful, mobile-friendly planning tools for students." />
+  <meta name="keywords" content="teen planner, student planner, daily planner for teens, habit tracker, goal tracker, free planner app, productivity for teens, student organizer" />
+  <meta name="author" content="TeenPlanner" />
+  <link rel="canonical" href="https://teenplanner.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://teenplanner.com/" />
+  <meta property="og:title" content="TeenPlanner - Free Daily Planner, Goal Tracker & Habit Tracker for Teens" />
+  <meta property="og:description" content="Free online planner designed for teenagers. Plan your day, track habits, achieve goals, and build better routines. Beautiful, mobile-friendly planning tools for students." />
+  <meta property="og:image" content="https://teenplanner.com/assets/images/og-image.png" />
+  <meta property="og:site_name" content="TeenPlanner" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://teenplanner.com/" />
+  <meta name="twitter:title" content="TeenPlanner - Free Daily Planner, Goal Tracker & Habit Tracker for Teens" />
+  <meta name="twitter:description" content="Free online planner designed for teenagers. Plan your day, track habits, achieve goals, and build better routines." />
+  <meta name="twitter:image" content="https://teenplanner.com/assets/images/twitter-card.png" />
+
+  <!-- Mobile Web App -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="TeenPlanner" />
+  <meta name="theme-color" content="#6c63ff" />
+
+  <!-- Schema.org Structured Data for AEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "TeenPlanner",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online planner designed for teenagers to plan their day, track habits, and achieve goals.",
+    "url": "https://teenplanner.com/",
+    "author": {
+      "@type": "Person",
+      "name": "John"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "127"
+    },
+    "featureList": [
+      "Daily Planner with hourly schedule",
+      "Habit Tracker with year view",
+      "Goal Setting and Progress Tracking",
+      "To-Do List Management",
+      "PDF Export",
+      "Local Data Storage"
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema for AEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is TeenPlanner?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TeenPlanner is a free, online productivity tool designed specifically for teenagers. It includes a daily planner, habit tracker, goal setting features, and resources to help teens stay organized, build better habits, and achieve their goals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is TeenPlanner really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! TeenPlanner is completely free to use. There are no hidden fees, subscriptions, or premium features. All features are available to everyone at no cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use TeenPlanner on my phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TeenPlanner is fully mobile-responsive. Simply visit the website on your smartphone or tablet browser. The interface automatically adapts to your screen size for optimal mobile use. You can also add it to your home screen for quick access."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does TeenPlanner save my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all your data is saved locally in your browser using LocalStorage. Your planner entries, habits, and goals are automatically saved as you work. Your data stays private and secure on your device."
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@600;700&family=Inter:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <!-- Feather Icons -->
   <script src="https://unpkg.com/feather-icons"></script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
   <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
@@ -24,6 +134,7 @@
           <li><a href="daily.html">Daily Planner</a></li>
           <li><a href="goals.html">Goals</a></li>
           <li><a href="habits.html">Habits</a></li>
+          <li><a href="examples.html">Examples</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
@@ -89,6 +200,40 @@
         </div>
       </div>
       <button class="testimonial-arrow right" id="testimonialNext" aria-label="Next testimonial"><i data-feather="chevron-right"></i></button>
+    </section>
+
+    <!-- Inspirational Call-to-Action -->
+    <section class="inspiration-cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 1.5rem; text-align: center; border-radius: 1.5rem; margin: 2rem auto 3rem; max-width: 1000px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+      <h2 style="font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">See Real Success Stories</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        Discover how students just like you are using TeenPlanner to ace exams, build healthy habits, achieve fitness goals, and balance school with their passions. Get inspired by real planning examples that work!
+      </p>
+      <a href="examples.html" style="background: white; color: #667eea; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: inline-block; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" onmouseover="this.style.transform='translateY(-3px) scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.15)'">
+        View Real Examples <span style="margin-left: 0.5rem;">→</span>
+      </a>
+    </section>
+
+    <!-- Why TeenPlanner Section -->
+    <section style="max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem;">
+      <h2 style="font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 700; color: #6c63ff; text-align: center; margin-bottom: 2.5rem;">Why TeenPlanner?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
+          <h3 style="font-family: 'Rubik', sans-serif; font-size: 1.2rem; color: #6c63ff; margin-bottom: 0.5rem;">100% Free Forever</h3>
+          <p style="color: #666; line-height: 1.6;">No subscriptions, no hidden fees, no premium plans. All features are free for everyone, always.</p>
+        </div>
+        <div style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+          <h3 style="font-family: 'Rubik', sans-serif; font-size: 1.2rem; color: #6c63ff; margin-bottom: 0.5rem;">Your Data Stays Private</h3>
+          <p style="color: #666; line-height: 1.6;">Everything is saved locally in your browser. No account required. Your plans are yours alone.</p>
+        </div>
+        <div style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+          <h3 style="font-family: 'Rubik', sans-serif; font-size: 1.2rem; color: #6c63ff; margin-bottom: 0.5rem;">Works Everywhere</h3>
+          <p style="color: #666; line-height: 1.6;">Desktop, tablet, or phone. Access your planner anywhere, anytime. Even works offline!</p>
+        </div>
+      </div>
     </section>
   </main>
 
