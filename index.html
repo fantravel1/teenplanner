@@ -111,12 +111,18 @@
   }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Performance: Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- Google Fonts with optimized loading -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@600;700&family=Inter:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
   <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/feather-icons" defer></script>
   <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
   <!-- PWA Manifest -->
   <link rel="manifest" href="/manifest.json" />
 
@@ -135,6 +141,8 @@
           <li><a href="goals.html">Goals</a></li>
           <li><a href="habits.html">Habits</a></li>
           <li><a href="examples.html">Examples</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="templates.html">Templates</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="about.html">About</a></li>
         </ul>

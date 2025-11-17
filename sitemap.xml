@@ -44,6 +44,22 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog -->
+  <url>
+    <loc>https://teenplanner.com/blog.html</loc>
+    <lastmod>2025-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Printable Templates -->
+  <url>
+    <loc>https://teenplanner.com/templates.html</loc>
+    <lastmod>2025-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Resources -->
   <url>
     <loc>https://teenplanner.com/resources.html</loc>
