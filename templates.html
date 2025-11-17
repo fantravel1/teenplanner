@@ -241,7 +241,7 @@
           • Notes/reminders area<br>
           • Week-at-a-glance overview
         </div>
-        <button class="download-btn" onclick="alert('PDF generation coming soon! Use the online planner for now.')">
+        <button class="download-btn" onclick="generateWeeklyPlannerPDF()">
           <i data-feather="download"></i> Download PDF
         </button>
       </div>
@@ -259,7 +259,7 @@
           • Streak counter<br>
           • Monthly review section
         </div>
-        <button class="download-btn" onclick="alert('PDF generation coming soon! Use the online tracker for now.')">
+        <button class="download-btn" onclick="generateHabitTrackerPDF()">
           <i data-feather="download"></i> Download PDF
         </button>
       </div>
@@ -277,7 +277,7 @@
           • Progress milestones<br>
           • Obstacle planning
         </div>
-        <button class="download-btn" onclick="alert('PDF generation coming soon! Use the online goals page for now.')">
+        <button class="download-btn" onclick="generateGoalWorksheetPDF()">
           <i data-feather="download"></i> Download PDF
         </button>
       </div>
@@ -295,7 +295,7 @@
           • Exam date tracker<br>
           • Study goals checklist
         </div>
-        <button class="download-btn" onclick="alert('PDF generation coming soon! Use the daily planner for now.')">
+        <button class="download-btn" onclick="generateStudyTimetablePDF()">
           <i data-feather="download"></i> Download PDF
         </button>
       </div>
@@ -313,7 +313,7 @@
           • Exam day preparation<br>
           • Last-minute review guide
         </div>
-        <button class="download-btn" onclick="alert('PDF generation coming soon!')">
+        <button class="download-btn" onclick="generateExamPrepChecklistPDF()">
           <i data-feather="download"></i> Download PDF
         </button>
       </div>
@@ -331,7 +331,7 @@
           • Important dates list<br>
           • Notes area
         </div>
-        <button class="download-btn" onclick="alert('PDF generation coming soon!')">
+        <button class="download-btn" onclick="generateMonthlyCalendarPDF()">
           <i data-feather="download"></i> Download PDF
         </button>
       </div>
@@ -349,7 +349,7 @@
           • Date/subject header<br>
           • Page numbering
         </div>
-        <button class="download-btn" onclick="alert('PDF generation coming soon!')">
+        <button class="download-btn" onclick="generateCornellNotesPDF()">
           <i data-feather="download"></i> Download PDF
         </button>
       </div>
@@ -367,7 +367,7 @@
           • Tomorrow's intention<br>
           • Mood tracker
         </div>
-        <button class="download-btn" onclick="alert('PDF generation coming soon!')">
+        <button class="download-btn" onclick="generateGratitudeJournalPDF()">
           <i data-feather="download"></i> Download PDF
         </button>
       </div>
@@ -467,6 +467,629 @@
       }
       html += '</ul>';
       return html;
+    }
+
+    // Generate Weekly Planner PDF
+    function generateWeeklyPlannerPDF() {
+      const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+      const plannerHTML = `
+        <div style="font-family: Arial, sans-serif; padding: 30px; max-width: 900px;">
+          <h1 style="color: #6c63ff; border-bottom: 3px solid #6c63ff; padding-bottom: 10px; margin-bottom: 20px;">Weekly Planner</h1>
+          <p style="margin-bottom: 20px;"><strong>Week of:</strong> _________________</p>
+
+          <div style="margin-bottom: 25px;">
+            <h2 style="color: #6c63ff; font-size: 1.2rem;">Weekly Goals</h2>
+            <ol style="line-height: 2;">
+              <li>_________________________________________________</li>
+              <li>_________________________________________________</li>
+              <li>_________________________________________________</li>
+            </ol>
+          </div>
+
+          ${days.map(day => `
+            <div style="border: 2px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 8px;">
+              <h3 style="color: #6c63ff; margin: 0 0 10px 0; font-size: 1.1rem;">${day}</h3>
+              <div style="display: grid; grid-template-columns: 80px 1fr; gap: 10px;">
+                <div style="font-weight: bold;">8:00 AM</div><div style="border-bottom: 1px solid #ddd; padding: 5px;">____________________________</div>
+                <div style="font-weight: bold;">12:00 PM</div><div style="border-bottom: 1px solid #ddd; padding: 5px;">____________________________</div>
+                <div style="font-weight: bold;">4:00 PM</div><div style="border-bottom: 1px solid #ddd; padding: 5px;">____________________________</div>
+                <div style="font-weight: bold;">8:00 PM</div><div style="border-bottom: 1px solid #ddd; padding: 5px;">____________________________</div>
+              </div>
+            </div>
+          `).join('')}
+
+          <div style="margin-top: 20px; border: 2px solid #ddd; padding: 15px; border-radius: 8px;">
+            <h3 style="color: #6c63ff; margin: 0 0 10px 0;">Notes & Reminders</h3>
+            <div style="min-height: 100px; border: 1px solid #ccc; padding: 10px;"></div>
+          </div>
+
+          <p style="text-align: center; margin-top: 30px; color: #999; font-size: 12px;">Generated by TeenPlanner • https://teenplanner.com</p>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = plannerHTML;
+      const opt = {
+        margin: 0.4,
+        filename: 'TeenPlanner-Weekly-Planner.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    // Generate Habit Tracker PDF
+    function generateHabitTrackerPDF() {
+      const days = Array.from({length: 31}, (_, i) => i + 1);
+      const habits = Array.from({length: 10}, (_, i) => i + 1);
+
+      const plannerHTML = `
+        <div style="font-family: Arial, sans-serif; padding: 30px; max-width: 900px;">
+          <h1 style="color: #6c63ff; border-bottom: 3px solid #6c63ff; padding-bottom: 10px; margin-bottom: 20px;">Monthly Habit Tracker</h1>
+          <p style="margin-bottom: 20px;"><strong>Month:</strong> _________________</p>
+
+          <table style="width: 100%; border-collapse: collapse; font-size: 11px;">
+            <thead>
+              <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 150px;">Habit</th>
+                ${days.map(day => `<th style="border: 1px solid #ddd; padding: 3px; text-align: center; font-size: 9px;">${day}</th>`).join('')}
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${habits.map(h => `
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 8px;">_____________</td>
+                  ${days.map(() => `<td style="border: 1px solid #ddd; padding: 3px; text-align: center;"><input type="checkbox" style="width: 12px; height: 12px;"></td>`).join('')}
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">___</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+
+          <div style="margin-top: 30px;">
+            <h3 style="color: #6c63ff;">Monthly Reflection</h3>
+            <p><strong>Which habits were easiest to maintain?</strong></p>
+            <div style="border: 1px solid #ccc; min-height: 60px; padding: 10px; margin-bottom: 15px;"></div>
+            <p><strong>What will I improve next month?</strong></p>
+            <div style="border: 1px solid #ccc; min-height: 60px; padding: 10px;"></div>
+          </div>
+
+          <p style="text-align: center; margin-top: 30px; color: #999; font-size: 12px;">Generated by TeenPlanner • https://teenplanner.com</p>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = plannerHTML;
+      const opt = {
+        margin: 0.4,
+        filename: 'TeenPlanner-Habit-Tracker.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    // Generate Goal Worksheet PDF
+    function generateGoalWorksheetPDF() {
+      const plannerHTML = `
+        <div style="font-family: Arial, sans-serif; padding: 40px; max-width: 800px;">
+          <h1 style="color: #6c63ff; border-bottom: 3px solid #6c63ff; padding-bottom: 10px;">SMART Goal Setting Worksheet</h1>
+          <p style="margin-bottom: 30px; color: #666;">Use this worksheet to set and track a meaningful goal.</p>
+
+          <div style="margin-bottom: 30px;">
+            <h2 style="color: #6c63ff; font-size: 1.3rem;">My Goal</h2>
+            <div style="border: 2px solid #6c63ff; padding: 15px; border-radius: 8px; min-height: 60px;"></div>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #6c63ff; font-size: 1.1rem;">Is My Goal SMART?</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; width: 150px; font-weight: bold; background: #f8f9ff;">Specific</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">What exactly will I accomplish? _________________________________</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; background: #f8f9ff;">Measurable</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">How will I measure progress? ____________________________________</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; background: #f8f9ff;">Achievable</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Is this realistic? Why? _________________________________________</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; background: #f8f9ff;">Relevant</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Why does this goal matter to me? _________________________________</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; background: #f8f9ff;">Time-bound</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Deadline: ___________________________________________________</td>
+              </tr>
+            </table>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #6c63ff;">Action Steps</h3>
+            <p style="color: #666; font-size: 0.9rem;">Break your goal into smaller, manageable steps:</p>
+            <ol style="line-height: 2.5;">
+              <li>_________________________________________________________________</li>
+              <li>_________________________________________________________________</li>
+              <li>_________________________________________________________________</li>
+              <li>_________________________________________________________________</li>
+              <li>_________________________________________________________________</li>
+            </ol>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #6c63ff;">Potential Obstacles & Solutions</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Obstacle</th>
+                <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Solution</th>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">_______________________</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">_______________________</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">_______________________</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">_______________________</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">_______________________</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">_______________________</td>
+              </tr>
+            </table>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #6c63ff;">Progress Tracking</h3>
+            <p>25% <input type="checkbox" style="margin-left: 20px;"> | 50% <input type="checkbox" style="margin-left: 20px;"> | 75% <input type="checkbox" style="margin-left: 20px;"> | 100% <input type="checkbox" style="margin-left: 20px;"> ✓</p>
+          </div>
+
+          <div>
+            <h3 style="color: #6c63ff;">Accountability Partner</h3>
+            <p>Who will support me? _________________________________________________</p>
+            <p>How often will we check in? __________________________________________</p>
+          </div>
+
+          <p style="text-align: center; margin-top: 40px; color: #999; font-size: 12px;">Generated by TeenPlanner • https://teenplanner.com</p>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = plannerHTML;
+      const opt = {
+        margin: 0.5,
+        filename: 'TeenPlanner-Goal-Worksheet.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    // Generate Study Timetable PDF
+    function generateStudyTimetablePDF() {
+      const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+      const times = ['8:00-9:00', '9:00-10:00', '10:00-11:00', '11:00-12:00', '1:00-2:00', '2:00-3:00', '3:00-4:00', '4:00-5:00', '5:00-6:00'];
+
+      const plannerHTML = `
+        <div style="font-family: Arial, sans-serif; padding: 25px; max-width: 950px;">
+          <h1 style="color: #6c63ff; border-bottom: 3px solid #6c63ff; padding-bottom: 10px; margin-bottom: 15px; font-size: 1.8rem;">Weekly Study Timetable</h1>
+          <p style="margin-bottom: 15px;"><strong>Week of:</strong> _________________ | <strong>Exam Dates:</strong> _________________</p>
+
+          <table style="width: 100%; border-collapse: collapse; font-size: 10px;">
+            <thead>
+              <tr style="background: #6c63ff; color: white;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 80px;">Time</th>
+                ${days.map(day => `<th style="border: 1px solid #ddd; padding: 5px; text-align: center;">${day}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              ${times.map(time => `
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold; background: #f8f9ff;">${time}</td>
+                  ${days.map(() => `<td style="border: 1px solid #ddd; padding: 10px; min-height: 35px;"></td>`).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+
+          <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div>
+              <h3 style="color: #6c63ff; font-size: 1rem;">Color Code Your Subjects</h3>
+              <p style="font-size: 10px; line-height: 1.8;">
+                <span style="display: inline-block; width: 15px; height: 15px; background: #ffeb3b; border: 1px solid #ccc; margin-right: 5px;"></span> Math<br>
+                <span style="display: inline-block; width: 15px; height: 15px; background: #4caf50; border: 1px solid #ccc; margin-right: 5px;"></span> Science<br>
+                <span style="display: inline-block; width: 15px; height: 15px; background: #2196f3; border: 1px solid #ccc; margin-right: 5px;"></span> English<br>
+                <span style="display: inline-block; width: 15px; height: 15px; background: #ff9800; border: 1px solid #ccc; margin-right: 5px;"></span> History<br>
+                <span style="display: inline-block; width: 15px; height: 15px; background: #e91e63; border: 1px solid #ccc; margin-right: 5px;"></span> Other
+              </p>
+            </div>
+            <div>
+              <h3 style="color: #6c63ff; font-size: 1rem;">Study Goals This Week</h3>
+              <ul style="font-size: 10px; line-height: 1.8; padding-left: 20px;">
+                <li>_________________________________</li>
+                <li>_________________________________</li>
+                <li>_________________________________</li>
+                <li>_________________________________</li>
+              </ul>
+            </div>
+          </div>
+
+          <p style="text-align: center; margin-top: 20px; color: #999; font-size: 11px;">Generated by TeenPlanner • https://teenplanner.com</p>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = plannerHTML;
+      const opt = {
+        margin: 0.3,
+        filename: 'TeenPlanner-Study-Timetable.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    // Generate Monthly Calendar PDF
+    function generateMonthlyCalendarPDF() {
+      const plannerHTML = `
+        <div style="font-family: Arial, sans-serif; padding: 30px; max-width: 900px;">
+          <h1 style="color: #6c63ff; border-bottom: 3px solid #6c63ff; padding-bottom: 10px; margin-bottom: 20px; text-align: center;">Monthly Calendar</h1>
+          <p style="text-align: center; margin-bottom: 25px; font-size: 1.2rem;"><strong>Month:</strong> _________________ | <strong>Year:</strong> _______</p>
+
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="background: #6c63ff; color: white;">
+                <th style="border: 2px solid #6c63ff; padding: 10px; width: 14.28%; font-size: 0.9rem;">Sunday</th>
+                <th style="border: 2px solid #6c63ff; padding: 10px; width: 14.28%; font-size: 0.9rem;">Monday</th>
+                <th style="border: 2px solid #6c63ff; padding: 10px; width: 14.28%; font-size: 0.9rem;">Tuesday</th>
+                <th style="border: 2px solid #6c63ff; padding: 10px; width: 14.28%; font-size: 0.9rem;">Wednesday</th>
+                <th style="border: 2px solid #6c63ff; padding: 10px; width: 14.28%; font-size: 0.9rem;">Thursday</th>
+                <th style="border: 2px solid #6c63ff; padding: 10px; width: 14.28%; font-size: 0.9rem;">Friday</th>
+                <th style="border: 2px solid #6c63ff; padding: 10px; width: 14.28%; font-size: 0.9rem;">Saturday</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${Array.from({length: 5}, () => `
+                <tr>
+                  ${Array.from({length: 7}, () => `
+                    <td style="border: 1px solid #ddd; padding: 8px; min-height: 100px; vertical-align: top; font-size: 0.85rem;">
+                      <div style="text-align: right; font-weight: bold; margin-bottom: 5px;">__</div>
+                      <div style="min-height: 60px;"></div>
+                    </td>
+                  `).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+
+          <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="border: 2px solid #ddd; padding: 15px; border-radius: 8px;">
+              <h3 style="color: #6c63ff; margin: 0 0 10px 0; font-size: 1rem;">Monthly Goals</h3>
+              <ol style="line-height: 2; font-size: 0.9rem;">
+                <li>_______________________________________</li>
+                <li>_______________________________________</li>
+                <li>_______________________________________</li>
+              </ol>
+            </div>
+            <div style="border: 2px solid #ddd; padding: 15px; border-radius: 8px;">
+              <h3 style="color: #6c63ff; margin: 0 0 10px 0; font-size: 1rem;">Important Dates</h3>
+              <p style="line-height: 2; font-size: 0.9rem;">
+                _______________________________________<br>
+                _______________________________________<br>
+                _______________________________________<br>
+                _______________________________________
+              </p>
+            </div>
+          </div>
+
+          <p style="text-align: center; margin-top: 25px; color: #999; font-size: 12px;">Generated by TeenPlanner • https://teenplanner.com</p>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = plannerHTML;
+      const opt = {
+        margin: 0.4,
+        filename: 'TeenPlanner-Monthly-Calendar.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    // Generate Exam Prep Checklist PDF
+    function generateExamPrepChecklistPDF() {
+      const plannerHTML = `
+        <div style="font-family: Arial, sans-serif; padding: 40px; max-width: 800px;">
+          <h1 style="color: #6c63ff; border-bottom: 3px solid #6c63ff; padding-bottom: 10px;">Exam Preparation Checklist</h1>
+          <p style="margin-bottom: 30px; color: #666;">Use this comprehensive checklist to prepare for your upcoming exam.</p>
+
+          <div style="margin-bottom: 25px;">
+            <h2 style="color: #6c63ff; font-size: 1.3rem;">Exam Information</h2>
+            <p><strong>Subject:</strong> _________________________________</p>
+            <p><strong>Exam Date:</strong> ________________ | <strong>Time:</strong> ________________</p>
+            <p><strong>Location:</strong> _________________________________</p>
+            <p><strong>Format:</strong> ☐ Multiple Choice  ☐ Essay  ☐ Short Answer  ☐ Practical  ☐ Other: ___________</p>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h2 style="color: #6c63ff; font-size: 1.3rem;">4 Weeks Before Exam</h2>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+              <li><input type="checkbox" style="margin-right: 10px;"> Review syllabus and identify all topics to cover</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Create a study schedule/timetable</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Gather all notes, textbooks, and materials</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Join or form a study group</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Start reviewing lecture notes systematically</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h2 style="color: #6c63ff; font-size: 1.3rem;">2 Weeks Before Exam</h2>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+              <li><input type="checkbox" style="margin-right: 10px;"> Complete practice problems/questions</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Create summary sheets or flashcards</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Take a practice test under timed conditions</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Review mistakes and weak areas</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Ask teacher for clarification on difficult topics</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h2 style="color: #6c63ff; font-size: 1.3rem;">1 Week Before Exam</h2>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+              <li><input type="checkbox" style="margin-right: 10px;"> Intensive review of all topics</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Take another practice test</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Focus extra time on weak areas</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Prepare exam supplies (pens, calculator, ID, etc.)</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Get enough sleep each night</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h2 style="color: #6c63ff; font-size: 1.3rem;">Day Before Exam</h2>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+              <li><input type="checkbox" style="margin-right: 10px;"> Light review only - don't cram!</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Organize all materials needed</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Set alarm and plan route to exam</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Eat a healthy dinner</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Get 8+ hours of sleep</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h2 style="color: #6c63ff; font-size: 1.3rem;">Exam Day</h2>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+              <li><input type="checkbox" style="margin-right: 10px;"> Eat a nutritious breakfast</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Arrive 15 minutes early</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Bring all required materials</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Read all instructions carefully</li>
+              <li><input type="checkbox" style="margin-right: 10px;"> Stay calm and confident - you've got this!</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 style="color: #6c63ff; font-size: 1.3rem;">Topics to Review</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Topic</th>
+                <th style="border: 1px solid #ddd; padding: 10px; text-align: center; width: 100px;">Reviewed</th>
+                <th style="border: 1px solid #ddd; padding: 10px; text-align: center; width: 120px;">Confidence</th>
+              </tr>
+              ${Array.from({length: 8}, () => `
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 10px;">_______________________________</td>
+                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center;"><input type="checkbox"></td>
+                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-size: 0.9rem;">☐ Low  ☐ Med  ☐ High</td>
+                </tr>
+              `).join('')}
+            </table>
+          </div>
+
+          <p style="text-align: center; margin-top: 40px; color: #999; font-size: 12px;">Generated by TeenPlanner • https://teenplanner.com</p>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = plannerHTML;
+      const opt = {
+        margin: 0.5,
+        filename: 'TeenPlanner-Exam-Prep-Checklist.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    // Generate Cornell Notes PDF
+    function generateCornellNotesPDF() {
+      const plannerHTML = `
+        <div style="font-family: Arial, sans-serif; padding: 40px; max-width: 800px;">
+          <div style="border-bottom: 2px solid #6c63ff; padding-bottom: 15px; margin-bottom: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+              <p style="margin: 5px 0;"><strong>Subject:</strong> ___________________________</p>
+              <p style="margin: 5px 0;"><strong>Topic:</strong> ___________________________</p>
+            </div>
+            <div style="text-align: right;">
+              <p style="margin: 5px 0;"><strong>Date:</strong> _______________</p>
+              <p style="margin: 5px 0;"><strong>Page:</strong> _____</p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0; min-height: 650px; border: 2px solid #333;">
+            <!-- Cue Column -->
+            <div style="border-right: 2px solid #333; padding: 15px; background: #fafafa;">
+              <h3 style="color: #6c63ff; margin: 0 0 15px 0; font-size: 1rem; text-align: center;">Cues / Questions</h3>
+              <p style="font-size: 0.85rem; color: #666; line-height: 2;">
+                Write key terms, questions, and prompts here during review.
+              </p>
+            </div>
+
+            <!-- Notes Column -->
+            <div style="padding: 15px;">
+              <h3 style="color: #6c63ff; margin: 0 0 15px 0; font-size: 1rem; text-align: center;">Notes</h3>
+              <p style="font-size: 0.85rem; color: #666; line-height: 2.5;">
+                Record main lecture notes here using abbreviations and short phrases.<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+                ___________________________________________________________<br>
+              </p>
+            </div>
+          </div>
+
+          <!-- Summary Section -->
+          <div style="border: 2px solid #333; border-top: none; padding: 20px; background: #f8f9ff;">
+            <h3 style="color: #6c63ff; margin: 0 0 10px 0; font-size: 1rem;">Summary</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 5px;">Summarize the main ideas in your own words (2-3 sentences):</p>
+            <div style="min-height: 80px; border-bottom: 1px solid #ccc; padding: 10px;"></div>
+          </div>
+
+          <div style="margin-top: 20px; padding: 15px; background: #e8f5e9; border-left: 4px solid #4caf50; border-radius: 5px;">
+            <h4 style="margin: 0 0 8px 0; color: #2e7d32; font-size: 0.95rem;">📝 How to Use Cornell Notes:</h4>
+            <p style="margin: 0; font-size: 0.85rem; line-height: 1.6; color: #555;">
+              <strong>1. Notes:</strong> Record lecture content during class<br>
+              <strong>2. Cues:</strong> After class, write questions/keywords in left column<br>
+              <strong>3. Summary:</strong> At bottom, summarize the page in your own words<br>
+              <strong>4. Review:</strong> Cover notes, test yourself using cues
+            </p>
+          </div>
+
+          <p style="text-align: center; margin-top: 30px; color: #999; font-size: 12px;">Generated by TeenPlanner • https://teenplanner.com</p>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = plannerHTML;
+      const opt = {
+        margin: 0.5,
+        filename: 'TeenPlanner-Cornell-Notes.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    // Generate Gratitude Journal PDF
+    function generateGratitudeJournalPDF() {
+      const plannerHTML = `
+        <div style="font-family: Arial, sans-serif; padding: 40px; max-width: 800px;">
+          <h1 style="color: #6c63ff; text-align: center; margin-bottom: 10px;">🌟 Daily Gratitude Journal 🌟</h1>
+          <p style="text-align: center; margin-bottom: 30px; color: #666;"><strong>Date:</strong> _________________</p>
+
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+            <h2 style="margin: 0 0 10px 0; font-size: 1.2rem; text-align: center;">Today's Affirmation</h2>
+            <p style="text-align: center; font-style: italic; font-size: 1rem; margin: 0;">"I am capable, strong, and worthy of good things."</p>
+          </div>
+
+          <div style="margin-bottom: 30px; background: #fff3e0; padding: 20px; border-radius: 10px; border-left: 5px solid #ff9800;">
+            <h2 style="color: #e65100; margin: 0 0 15px 0; font-size: 1.2rem;">✨ Three Things I'm Grateful For Today</h2>
+            <div style="margin-bottom: 15px;">
+              <strong style="color: #e65100;">1.</strong>
+              <div style="border-bottom: 1px solid #ccc; padding: 10px; margin-top: 5px; min-height: 50px;"></div>
+            </div>
+            <div style="margin-bottom: 15px;">
+              <strong style="color: #e65100;">2.</strong>
+              <div style="border-bottom: 1px solid #ccc; padding: 10px; margin-top: 5px; min-height: 50px;"></div>
+            </div>
+            <div>
+              <strong style="color: #e65100;">3.</strong>
+              <div style="border-bottom: 1px solid #ccc; padding: 10px; margin-top: 5px; min-height: 50px;"></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 30px; background: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #4caf50;">
+            <h2 style="color: #2e7d32; margin: 0 0 10px 0; font-size: 1.2rem;">💚 One Positive Moment from Today</h2>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Describe a moment that made you smile or feel proud:</p>
+            <div style="border: 1px solid #ccc; padding: 15px; min-height: 100px; background: white; border-radius: 5px;"></div>
+          </div>
+
+          <div style="margin-bottom: 30px; background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 5px solid #2196f3;">
+            <h2 style="color: #1565c0; margin: 0 0 10px 0; font-size: 1.2rem;">🌱 Someone Who Made My Day Better</h2>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Who helped, inspired, or supported you today?</p>
+            <div style="border-bottom: 2px solid #2196f3; padding: 10px; min-height: 40px;"></div>
+          </div>
+
+          <div style="margin-bottom: 30px; background: #f3e5f5; padding: 20px; border-radius: 10px; border-left: 5px solid #9c27b0;">
+            <h2 style="color: #7b1fa2; margin: 0 0 10px 0; font-size: 1.2rem;">🎯 Tomorrow's Positive Intention</h2>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">One thing I'll focus on or look forward to tomorrow:</p>
+            <div style="border-bottom: 2px solid #9c27b0; padding: 10px; min-height: 40px;"></div>
+          </div>
+
+          <div style="background: #fce4ec; padding: 20px; border-radius: 10px; border-left: 5px solid #e91e63;">
+            <h2 style="color: #c2185b; margin: 0 0 15px 0; font-size: 1.2rem;">😊 How I'm Feeling Right Now</h2>
+            <div style="display: flex; justify-content: space-around; font-size: 2rem;">
+              <div style="text-align: center;">
+                <div>😊</div>
+                <div style="font-size: 0.7rem; margin-top: 5px;">Happy</div>
+              </div>
+              <div style="text-align: center;">
+                <div>😌</div>
+                <div style="font-size: 0.7rem; margin-top: 5px;">Calm</div>
+              </div>
+              <div style="text-align: center;">
+                <div>😴</div>
+                <div style="font-size: 0.7rem; margin-top: 5px;">Tired</div>
+              </div>
+              <div style="text-align: center;">
+                <div>😢</div>
+                <div style="font-size: 0.7rem; margin-top: 5px;">Sad</div>
+              </div>
+              <div style="text-align: center;">
+                <div>😤</div>
+                <div style="font-size: 0.7rem; margin-top: 5px;">Stressed</div>
+              </div>
+              <div style="text-align: center;">
+                <div>🤗</div>
+                <div style="font-size: 0.7rem; margin-top: 5px;">Grateful</div>
+              </div>
+            </div>
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: #666;">Circle how you feel (it's okay to circle more than one!)</p>
+          </div>
+
+          <div style="margin-top: 30px; padding: 15px; background: #fff9c4; border-radius: 10px; text-align: center;">
+            <p style="margin: 0; font-size: 0.95rem; color: #f57f17; font-weight: 600;">
+              "Gratitude turns what we have into enough." - Keep shining! ✨
+            </p>
+          </div>
+
+          <p style="text-align: center; margin-top: 40px; color: #999; font-size: 12px;">Generated by TeenPlanner • https://teenplanner.com</p>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = plannerHTML;
+      const opt = {
+        margin: 0.5,
+        filename: 'TeenPlanner-Gratitude-Journal.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
     }
   </script>
 </body>
