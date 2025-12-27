@@ -302,4 +302,128 @@ document.addEventListener('DOMContentLoaded', function() {
 
   renderHabitList();
   renderCalendar();
+
+  // --- SHARPEN THE SAW - Wellness Dimensions (Habit 7) ---
+  const wellnessSuggestions = {
+    physical: [
+      "Exercise for 30 minutes daily",
+      "Drink 8 glasses of water",
+      "Get 8+ hours of sleep",
+      "Eat fruits and vegetables",
+      "Take a walk outside",
+      "Do stretching or yoga",
+      "Limit screen time before bed"
+    ],
+    mental: [
+      "Read for 20 minutes",
+      "Learn something new each day",
+      "Practice a skill or hobby",
+      "Write in a journal",
+      "Solve puzzles or brain games",
+      "Watch educational content",
+      "Set aside time for creative projects"
+    ],
+    social: [
+      "Call or text a friend",
+      "Spend quality time with family",
+      "Practice active listening",
+      "Do an act of kindness",
+      "Join a club or group activity",
+      "Express gratitude to someone",
+      "Volunteer in your community"
+    ],
+    spiritual: [
+      "Meditate for 10 minutes",
+      "Spend time in nature",
+      "Reflect on your values",
+      "Practice gratitude journaling",
+      "Disconnect from technology",
+      "Listen to calming music",
+      "Read inspirational content"
+    ]
+  };
+
+  const wellnessDimensions = document.querySelectorAll('.wellness-dimension');
+  const wellnessSuggestionsBox = document.getElementById('wellnessSuggestions');
+  const suggestionDimension = document.getElementById('suggestionDimension');
+  const suggestionsList = document.getElementById('suggestionsList');
+
+  wellnessDimensions.forEach(dim => {
+    dim.addEventListener('click', () => {
+      // Toggle active state
+      wellnessDimensions.forEach(d => d.classList.remove('active'));
+      dim.classList.add('active');
+
+      // Get dimension type
+      const dimensionType = dim.dataset.dimension;
+      const dimensionName = dim.querySelector('h4').textContent;
+
+      // Show suggestions
+      if (wellnessSuggestionsBox) {
+        wellnessSuggestionsBox.style.display = 'block';
+        suggestionDimension.textContent = dimensionName;
+
+        // Populate suggestions
+        const suggestions = wellnessSuggestions[dimensionType] || [];
+        suggestionsList.innerHTML = suggestions.map(s => `<li>${s}</li>`).join('');
+      }
+    });
+  });
+
+  // Track which habits belong to which dimension
+  const WELLNESS_HABITS_KEY = 'teenplanner_wellness_habits';
+
+  function getWellnessHabits() {
+    return JSON.parse(localStorage.getItem(WELLNESS_HABITS_KEY) || '{"physical":[],"mental":[],"social":[],"spiritual":[]}');
+  }
+
+  function categorizeExistingHabits() {
+    // Simple categorization based on habit names
+    const wellnessHabits = getWellnessHabits();
+    const habitNames = habits.map(h => h.name.toLowerCase());
+
+    // Physical keywords
+    const physicalKeywords = ['water', 'exercise', 'stretch', 'sleep', 'walk', 'run', 'workout', 'gym', 'sport'];
+    const mentalKeywords = ['read', 'study', 'learn', 'book', 'practice', 'skill', 'puzzle'];
+    const socialKeywords = ['friend', 'family', 'call', 'text', 'help', 'volunteer', 'kind'];
+    const spiritualKeywords = ['meditat', 'gratitude', 'reflect', 'nature', 'calm', 'quiet', 'journal'];
+
+    habits.forEach(habit => {
+      const name = habit.name.toLowerCase();
+      if (physicalKeywords.some(k => name.includes(k))) {
+        if (!wellnessHabits.physical.includes(habit.name)) {
+          wellnessHabits.physical.push(habit.name);
+        }
+      } else if (mentalKeywords.some(k => name.includes(k))) {
+        if (!wellnessHabits.mental.includes(habit.name)) {
+          wellnessHabits.mental.push(habit.name);
+        }
+      } else if (socialKeywords.some(k => name.includes(k))) {
+        if (!wellnessHabits.social.includes(habit.name)) {
+          wellnessHabits.social.push(habit.name);
+        }
+      } else if (spiritualKeywords.some(k => name.includes(k))) {
+        if (!wellnessHabits.spiritual.includes(habit.name)) {
+          wellnessHabits.spiritual.push(habit.name);
+        }
+      }
+    });
+
+    localStorage.setItem(WELLNESS_HABITS_KEY, JSON.stringify(wellnessHabits));
+    return wellnessHabits;
+  }
+
+  function updateWellnessDisplay() {
+    const wellnessHabits = categorizeExistingHabits();
+
+    ['physical', 'mental', 'social', 'spiritual'].forEach(dim => {
+      const container = document.getElementById(`${dim}Habits`);
+      if (container && wellnessHabits[dim].length > 0) {
+        container.innerHTML = `<span style="font-size: 0.75rem; color: #888;">${wellnessHabits[dim].length} habit${wellnessHabits[dim].length > 1 ? 's' : ''}</span>`;
+      }
+    });
+  }
+
+  // Run on load
+  updateWellnessDisplay();
 });

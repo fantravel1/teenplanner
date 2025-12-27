@@ -241,4 +241,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Feather icons refresh ---
   if (window.feather) feather.replace();
+
+  // --- MISSION STATEMENT (Habit 2: Begin with the End in Mind) ---
+  const MISSION_KEY = 'teenplanner_mission';
+
+  function getMissionData() {
+    return JSON.parse(localStorage.getItem(MISSION_KEY) || '{"values":"","strengths":"","difference":"","future":"","statement":""}');
+  }
+
+  function setMissionData(data) {
+    localStorage.setItem(MISSION_KEY, JSON.stringify(data));
+  }
+
+  // Load saved mission data
+  const missionInputs = {
+    values: document.getElementById('missionValues'),
+    strengths: document.getElementById('missionStrengths'),
+    difference: document.getElementById('missionDifference'),
+    future: document.getElementById('missionFuture'),
+    statement: document.getElementById('missionStatement')
+  };
+
+  const savedMission = getMissionData();
+
+  // Populate fields with saved data
+  Object.keys(missionInputs).forEach(key => {
+    if (missionInputs[key] && savedMission[key]) {
+      missionInputs[key].value = savedMission[key];
+    }
+  });
+
+  // Auto-save on input for prompt fields
+  ['values', 'strengths', 'difference', 'future'].forEach(key => {
+    if (missionInputs[key]) {
+      missionInputs[key].addEventListener('input', () => {
+        const data = getMissionData();
+        data[key] = missionInputs[key].value;
+        setMissionData(data);
+      });
+    }
+  });
+
+  // Auto-save statement as user types
+  if (missionInputs.statement) {
+    missionInputs.statement.addEventListener('input', () => {
+      const data = getMissionData();
+      data.statement = missionInputs.statement.value;
+      setMissionData(data);
+    });
+  }
+
+  // Save button for mission statement
+  const saveMissionBtn = document.getElementById('saveMissionBtn');
+  if (saveMissionBtn) {
+    saveMissionBtn.addEventListener('click', () => {
+      const data = getMissionData();
+      Object.keys(missionInputs).forEach(key => {
+        if (missionInputs[key]) {
+          data[key] = missionInputs[key].value;
+        }
+      });
+      setMissionData(data);
+      showToast('Mission Statement saved!');
+      saveMissionBtn.style.transform = 'scale(1.1)';
+      setTimeout(() => {
+        saveMissionBtn.style.transform = '';
+      }, 200);
+    });
+  }
 });

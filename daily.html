@@ -72,6 +72,7 @@
           <li><a href="daily.html">Daily Planner</a></li>
           <li><a href="goals.html">Goals</a></li>
           <li><a href="habits.html">Habits</a></li>
+          <li><a href="7habits.html">7 Habits</a></li>
           <li><a href="examples.html">Examples</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="templates.html">Templates</a></li>
@@ -135,6 +136,82 @@
           <h3>Daily Thought</h3>
           <label for="thoughtInput">What are you proud of today?</label>
           <span class="floating-label"><textarea id="thoughtInput" maxlength="220" placeholder=" " rows="2"></textarea><label for="thoughtInput">Write your daily reflection...</label></span>
+        </div>
+
+        <!-- Priority Matrix (Covey's Quadrants - Habit 3) -->
+        <div class="planner-card priority-matrix-card fade-in-scroll">
+          <h3>Priority Matrix <span class="matrix-subtitle">Put First Things First</span></h3>
+          <p class="matrix-intro">Based on Habit 3 of the 7 Habits. Focus on Quadrant 2 for maximum impact!</p>
+          <div class="priority-matrix">
+            <div class="matrix-header-row">
+              <div class="matrix-corner"></div>
+              <div class="matrix-col-header urgent-header">URGENT</div>
+              <div class="matrix-col-header not-urgent-header">NOT URGENT</div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-row-header important-header">IMPORTANT</div>
+              <div class="matrix-quadrant q1" data-quadrant="1">
+                <div class="quadrant-header">
+                  <span class="quadrant-icon">Q1</span>
+                  <span class="quadrant-title">DO FIRST</span>
+                </div>
+                <p class="quadrant-desc">Crises, deadlines, emergencies</p>
+                <ul class="quadrant-list" id="q1List">
+                  <!-- Items will be added here -->
+                </ul>
+                <div class="quadrant-input-wrap">
+                  <input type="text" class="quadrant-input" id="q1Input" placeholder="Add task..." maxlength="50" />
+                  <button class="quadrant-add-btn" data-quadrant="1"><i data-feather="plus"></i></button>
+                </div>
+              </div>
+              <div class="matrix-quadrant q2" data-quadrant="2">
+                <div class="quadrant-header">
+                  <span class="quadrant-icon">Q2</span>
+                  <span class="quadrant-title">SCHEDULE</span>
+                </div>
+                <p class="quadrant-desc">Planning, growth, relationships</p>
+                <ul class="quadrant-list" id="q2List">
+                  <!-- Items will be added here -->
+                </ul>
+                <div class="quadrant-input-wrap">
+                  <input type="text" class="quadrant-input" id="q2Input" placeholder="Add task..." maxlength="50" />
+                  <button class="quadrant-add-btn" data-quadrant="2"><i data-feather="plus"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="matrix-row">
+              <div class="matrix-row-header not-important-header">NOT IMPORTANT</div>
+              <div class="matrix-quadrant q3" data-quadrant="3">
+                <div class="quadrant-header">
+                  <span class="quadrant-icon">Q3</span>
+                  <span class="quadrant-title">DELEGATE</span>
+                </div>
+                <p class="quadrant-desc">Interruptions, some calls/emails</p>
+                <ul class="quadrant-list" id="q3List">
+                  <!-- Items will be added here -->
+                </ul>
+                <div class="quadrant-input-wrap">
+                  <input type="text" class="quadrant-input" id="q3Input" placeholder="Add task..." maxlength="50" />
+                  <button class="quadrant-add-btn" data-quadrant="3"><i data-feather="plus"></i></button>
+                </div>
+              </div>
+              <div class="matrix-quadrant q4" data-quadrant="4">
+                <div class="quadrant-header">
+                  <span class="quadrant-icon">Q4</span>
+                  <span class="quadrant-title">ELIMINATE</span>
+                </div>
+                <p class="quadrant-desc">Time wasters, busy work</p>
+                <ul class="quadrant-list" id="q4List">
+                  <!-- Items will be added here -->
+                </ul>
+                <div class="quadrant-input-wrap">
+                  <input type="text" class="quadrant-input" id="q4Input" placeholder="Add task..." maxlength="50" />
+                  <button class="quadrant-add-btn" data-quadrant="4"><i data-feather="plus"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="7habits.html" class="matrix-learn-more">Learn more about the 7 Habits →</a>
         </div>
       </div>
     </section>

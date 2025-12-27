@@ -148,3 +148,75 @@ hourInputs.forEach((inp,i) => {
     setHourVals(vals);
   };
 });
+
+// --- Priority Matrix (Covey's Quadrants - Habit 3) ---
+const MATRIX_KEY = 'teenplanner_priority_matrix';
+
+function getMatrixData() {
+  return JSON.parse(localStorage.getItem(MATRIX_KEY) || '{"q1":[],"q2":[],"q3":[],"q4":[]}');
+}
+
+function setMatrixData(data) {
+  localStorage.setItem(MATRIX_KEY, JSON.stringify(data));
+}
+
+function renderMatrix() {
+  const data = getMatrixData();
+  ['q1', 'q2', 'q3', 'q4'].forEach(q => {
+    const list = document.getElementById(`${q}List`);
+    if (list) {
+      list.innerHTML = data[q].map((item, i) =>
+        `<li>
+          <span>${item}</span>
+          <button data-quadrant="${q}" data-idx="${i}" aria-label="Remove"><i data-feather="x"></i></button>
+        </li>`
+      ).join('');
+    }
+  });
+  feather.replace();
+}
+
+// Add item to quadrant
+document.querySelectorAll('.quadrant-add-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const q = 'q' + btn.dataset.quadrant;
+    const input = document.getElementById(`${q}Input`);
+    const val = input.value.trim();
+    if (val) {
+      const data = getMatrixData();
+      data[q].push(val);
+      setMatrixData(data);
+      input.value = '';
+      renderMatrix();
+    }
+  });
+});
+
+// Handle Enter key on inputs
+document.querySelectorAll('.quadrant-input').forEach(input => {
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const q = input.id.replace('Input', '');
+      const btn = document.querySelector(`.quadrant-add-btn[data-quadrant="${q.replace('q', '')}"]`);
+      if (btn) btn.click();
+    }
+  });
+});
+
+// Remove item from quadrant
+document.querySelectorAll('.quadrant-list').forEach(list => {
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (btn) {
+      const q = btn.dataset.quadrant;
+      const idx = parseInt(btn.dataset.idx);
+      const data = getMatrixData();
+      data[q].splice(idx, 1);
+      setMatrixData(data);
+      renderMatrix();
+    }
+  });
+});
+
+renderMatrix();
