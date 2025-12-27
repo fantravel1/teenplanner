@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Primary Meta Tags -->
+  <title>7 Habits of Highly Effective Teens | TeenPlanner - Build Success Habits</title>
+  <meta name="title" content="7 Habits of Highly Effective Teens | TeenPlanner - Build Success Habits" />
+  <meta name="description" content="Learn the 7 Habits of Highly Effective People adapted for teens. Build proactive habits, set goals with the end in mind, prioritize what matters, and more." />
+  <meta name="keywords" content="7 habits, highly effective teens, Stephen Covey, teen success habits, productivity habits, personal development teens" />
+  <link rel="canonical" href="https://teenplanner.com/7habits.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://teenplanner.com/7habits.html" />
+  <meta property="og:title" content="7 Habits of Highly Effective Teens | TeenPlanner" />
+  <meta property="og:description" content="Learn the 7 Habits that will transform your life. Teen-friendly guide to building success habits." />
+  <meta property="og:image" content="https://teenplanner.com/assets/images/7habits-preview.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://teenplanner.com/7habits.html" />
+  <meta name="twitter:title" content="7 Habits of Highly Effective Teens | TeenPlanner" />
+  <meta name="twitter:description" content="Master the 7 Habits for teen success and personal effectiveness." />
+
+  <!-- Mobile Web App -->
+  <meta name="theme-color" content="#6c63ff" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The 7 Habits of Highly Effective Teens",
+    "description": "A teen-friendly guide to Stephen Covey's 7 Habits framework for personal effectiveness and success.",
+    "author": {
+      "@type": "Organization",
+      "name": "TeenPlanner"
+    }
+  }
+  </script>
+
+  <!-- Performance: Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- Google Fonts with optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@600;700&family=Inter:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons" defer></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .habits-hero {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .habits-hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-link);
+      margin-bottom: 1rem;
+    }
+    .habits-hero .subtitle {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .habits-intro {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--color-card);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--color-shadow);
+    }
+    .habits-intro h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--color-link);
+      margin-bottom: 1rem;
+    }
+    .habits-intro p {
+      line-height: 1.8;
+      color: #444;
+    }
+    .habits-grid {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .habit-card {
+      background: var(--color-card);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: var(--color-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .habit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 45px rgba(108, 99, 255, 0.15);
+    }
+    .habit-header {
+      padding: 2rem;
+      color: white;
+      position: relative;
+    }
+    .habit-number {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 4rem;
+      font-weight: 700;
+      opacity: 0.3;
+      font-family: 'Poppins', sans-serif;
+    }
+    .habit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .habit-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    .habit-body {
+      padding: 2rem;
+    }
+    .habit-tagline {
+      font-family: 'Rubik', sans-serif;
+      font-size: 1.1rem;
+      color: var(--color-link);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .habit-description {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .habit-tips {
+      background: linear-gradient(135deg, #f8fafc 0%, #e6e6fa 100%);
+      border-radius: 1rem;
+      padding: 1.2rem;
+    }
+    .habit-tips h4 {
+      font-family: 'Rubik', sans-serif;
+      color: var(--color-link);
+      margin: 0 0 0.8rem 0;
+      font-size: 1rem;
+    }
+    .habit-tips ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      color: #444;
+    }
+    .habit-tips li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    /* Habit colors */
+    .habit-1 .habit-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .habit-2 .habit-header { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .habit-3 .habit-header { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .habit-4 .habit-header { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+    .habit-5 .habit-header { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    .habit-6 .habit-header { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+    .habit-7 .habit-header { background: linear-gradient(135deg, #6c63ff 0%, #b8f2e6 100%); }
+
+    .paradigm-section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .paradigm-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: var(--radius-2xl);
+      padding: 3rem;
+      text-align: center;
+    }
+    .paradigm-card h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .paradigm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .paradigm-item {
+      background: rgba(255,255,255,0.15);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .paradigm-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .paradigm-item p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .maturity-section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem 1.5rem;
+    }
+    .maturity-levels {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .maturity-level {
+      background: var(--color-card);
+      border-radius: var(--radius-2xl);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--color-shadow);
+      min-width: 180px;
+    }
+    .maturity-level h3 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--color-link);
+      margin-bottom: 0.5rem;
+    }
+    .maturity-arrow {
+      font-size: 2rem;
+      color: var(--color-link);
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border-radius: var(--radius-2xl);
+      margin: 3rem auto;
+      max-width: 1000px;
+    }
+    .cta-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-btn-white {
+      background: white;
+      color: #667eea;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cta-btn-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .cta-btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .cta-btn-outline:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 700px) {
+      .habits-hero h1 {
+        font-size: 2rem;
+      }
+      .habits-grid {
+        grid-template-columns: 1fr;
+      }
+      .habit-number {
+        font-size: 3rem;
+      }
+      .paradigm-card {
+        padding: 2rem 1.5rem;
+      }
+      .maturity-levels {
+        flex-direction: column;
+      }
+      .maturity-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">TeenPlanner</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="daily.html">Daily Planner</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="habits.html">Habits</a></li>
+          <li><a href="7habits.html">7 Habits</a></li>
+          <li><a href="examples.html">Examples</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="templates.html">Templates</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="habits-hero">
+      <h1>The 7 Habits of Highly Effective Teens</h1>
+      <p class="subtitle">Based on Stephen Covey's timeless principles, adapted for your life. Master these habits and unlock your full potential.</p>
+    </section>
+
+    <section class="habits-intro">
+      <h2>What Are the 7 Habits?</h2>
+      <p>The 7 Habits aren't quick fixes or hacks—they're fundamental principles that help you become the person you want to be. Think of them as a roadmap from <strong>dependence</strong> (relying on others) to <strong>independence</strong> (self-reliance) to <strong>interdependence</strong> (working powerfully with others).</p>
+      <p style="margin-top: 1rem;">Habits 1-3 are about mastering yourself (Private Victory). Habits 4-6 are about working with others (Public Victory). Habit 7 keeps you sharp and growing. Let's dive in!</p>
+    </section>
+
+    <!-- Maturity Continuum -->
+    <section class="maturity-section">
+      <h2 style="text-align: center; font-family: 'Poppins', sans-serif; color: var(--color-link);">The Maturity Continuum</h2>
+      <div class="maturity-levels">
+        <div class="maturity-level">
+          <h3>Dependence</h3>
+          <p>"You take care of me"</p>
+        </div>
+        <span class="maturity-arrow">→</span>
+        <div class="maturity-level" style="border: 2px solid var(--color-link);">
+          <h3>Independence</h3>
+          <p>"I take care of myself"</p>
+        </div>
+        <span class="maturity-arrow">→</span>
+        <div class="maturity-level" style="background: linear-gradient(135deg, #e6e6fa 0%, #b8f2e6 100%);">
+          <h3>Interdependence</h3>
+          <p>"We can do more together"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 7 Habits Cards -->
+    <section class="habits-grid">
+      <!-- Habit 1: Be Proactive -->
+      <article class="habit-card habit-1">
+        <div class="habit-header">
+          <span class="habit-number">1</span>
+          <div class="habit-icon"><i data-feather="zap"></i></div>
+          <h3>Be Proactive</h3>
+        </div>
+        <div class="habit-body">
+          <p class="habit-tagline">"I am the force. I am responsible for my life."</p>
+          <p class="habit-description">Being proactive means taking responsibility for your life. Instead of blaming circumstances, other people, or conditions, you choose your response. You focus on what you CAN control (your actions, attitudes, reactions) rather than what you can't.</p>
+          <div class="habit-tips">
+            <h4>Try This:</h4>
+            <ul>
+              <li>Replace "I have to" with "I choose to"</li>
+              <li>Focus on your Circle of Influence (things you can change)</li>
+              <li>When something goes wrong, ask "What can I do about this?"</li>
+              <li>Take initiative—don't wait for others to act first</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Habit 2: Begin with the End in Mind -->
+      <article class="habit-card habit-2">
+        <div class="habit-header">
+          <span class="habit-number">2</span>
+          <div class="habit-icon"><i data-feather="target"></i></div>
+          <h3>Begin with the End in Mind</h3>
+        </div>
+        <div class="habit-body">
+          <p class="habit-tagline">"Control your own destiny or someone else will."</p>
+          <p class="habit-description">Everything is created twice—first in your mind, then in reality. Define your values and goals before you start. Know what matters most to you so you can make decisions aligned with your vision.</p>
+          <div class="habit-tips">
+            <h4>Try This:</h4>
+            <ul>
+              <li>Write a personal mission statement</li>
+              <li>Visualize who you want to be in 5 years</li>
+              <li>Before starting any project, define what success looks like</li>
+              <li>Ask yourself: "Is what I'm doing right now helping me become who I want to be?"</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Habit 3: Put First Things First -->
+      <article class="habit-card habit-3">
+        <div class="habit-header">
+          <span class="habit-number">3</span>
+          <div class="habit-icon"><i data-feather="list"></i></div>
+          <h3>Put First Things First</h3>
+        </div>
+        <div class="habit-body">
+          <p class="habit-tagline">"The key is not to prioritize your schedule, but to schedule your priorities."</p>
+          <p class="habit-description">This is about execution—doing what matters most first. Use the Priority Matrix to distinguish between what's urgent and what's important. Spend more time in Quadrant 2 (important but not urgent) for maximum impact.</p>
+          <div class="habit-tips">
+            <h4>Try This:</h4>
+            <ul>
+              <li>Use the Priority Matrix (Urgent vs. Important)</li>
+              <li>Do your hardest task first thing in the morning</li>
+              <li>Learn to say "no" to things that don't align with your goals</li>
+              <li>Schedule time for what matters—don't just react to what's urgent</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Habit 4: Think Win-Win -->
+      <article class="habit-card habit-4">
+        <div class="habit-header">
+          <span class="habit-number">4</span>
+          <div class="habit-icon"><i data-feather="users"></i></div>
+          <h3>Think Win-Win</h3>
+        </div>
+        <div class="habit-body">
+          <p class="habit-tagline">"Life is not a competition. There's enough for everyone."</p>
+          <p class="habit-description">Win-Win is a mindset that seeks mutual benefit. In any interaction, look for solutions where everyone wins. It's not about being nice—it's about being both courageous AND considerate.</p>
+          <div class="habit-tips">
+            <h4>Try This:</h4>
+            <ul>
+              <li>In conflicts, ask "How can we both get what we want?"</li>
+              <li>Celebrate others' successes instead of feeling threatened</li>
+              <li>Share credit and recognition with your team</li>
+              <li>If win-win isn't possible, agree to "No Deal" rather than lose-win</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Habit 5: Seek First to Understand -->
+      <article class="habit-card habit-5">
+        <div class="habit-header">
+          <span class="habit-number">5</span>
+          <div class="habit-icon"><i data-feather="headphones"></i></div>
+          <h3>Seek First to Understand, Then to Be Understood</h3>
+        </div>
+        <div class="habit-body">
+          <p class="habit-tagline">"Most people listen with the intent to reply, not to understand."</p>
+          <p class="habit-description">Communication is the most important skill in life. Practice empathic listening—really try to understand the other person's perspective before sharing your own. This builds trust and opens real dialogue.</p>
+          <div class="habit-tips">
+            <h4>Try This:</h4>
+            <ul>
+              <li>Listen without planning your response</li>
+              <li>Reflect back what you heard to confirm understanding</li>
+              <li>Ask questions to understand their feelings, not just facts</li>
+              <li>Put your phone away during conversations</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Habit 6: Synergize -->
+      <article class="habit-card habit-6">
+        <div class="habit-header">
+          <span class="habit-number">6</span>
+          <div class="habit-icon"><i data-feather="git-merge"></i></div>
+          <h3>Synergize</h3>
+        </div>
+        <div class="habit-body">
+          <p class="habit-tagline">"The whole is greater than the sum of its parts."</p>
+          <p class="habit-description">Synergy means that 1+1 can equal 3, 10, or 100! When you truly combine strengths with others—valuing differences rather than tolerating them—you create something far better than anyone could alone.</p>
+          <div class="habit-tips">
+            <h4>Try This:</h4>
+            <ul>
+              <li>Value and seek out different perspectives</li>
+              <li>In group projects, leverage each person's unique strengths</li>
+              <li>Look for the "third alternative"—a solution better than yours OR theirs</li>
+              <li>See differences as opportunities, not obstacles</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Habit 7: Sharpen the Saw -->
+      <article class="habit-card habit-7">
+        <div class="habit-header">
+          <span class="habit-number">7</span>
+          <div class="habit-icon"><i data-feather="refresh-cw"></i></div>
+          <h3>Sharpen the Saw</h3>
+        </div>
+        <div class="habit-body">
+          <p class="habit-tagline">"You can't pour from an empty cup. Take care of yourself first."</p>
+          <p class="habit-description">This habit is about continuous renewal in four dimensions: Physical (exercise, nutrition, sleep), Mental (learning, reading), Social/Emotional (relationships, service), and Spiritual (values, meditation, nature). Balance all four for sustainable effectiveness.</p>
+          <div class="habit-tips">
+            <h4>The Four Dimensions:</h4>
+            <ul>
+              <li><strong>Physical:</strong> Exercise, eat well, get enough sleep</li>
+              <li><strong>Mental:</strong> Read, learn new skills, stretch your mind</li>
+              <li><strong>Social/Emotional:</strong> Connect with others, practice empathy</li>
+              <li><strong>Spiritual:</strong> Meditate, spend time in nature, reflect on values</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Paradigms Section -->
+    <section class="paradigm-section">
+      <div class="paradigm-card">
+        <h2>Shift Your Paradigm</h2>
+        <p>A paradigm is like a pair of glasses through which you see the world. Sometimes we need to change our "glasses" to see things differently.</p>
+        <div class="paradigm-grid">
+          <div class="paradigm-item">
+            <h3>From Reactive</h3>
+            <p>"Things happen to me"</p>
+          </div>
+          <div class="paradigm-item">
+            <h3>To Proactive</h3>
+            <p>"I make things happen"</p>
+          </div>
+          <div class="paradigm-item">
+            <h3>From Scarcity</h3>
+            <p>"There's not enough for everyone"</p>
+          </div>
+          <div class="paradigm-item">
+            <h3>To Abundance</h3>
+            <p>"There's plenty for everyone"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2>Ready to Practice the 7 Habits?</h2>
+      <p>TeenPlanner is designed with the 7 Habits in mind. Use our tools to put these principles into action every day.</p>
+      <div class="cta-buttons">
+        <a href="daily.html" class="cta-btn-white">Use Priority Matrix</a>
+        <a href="goals.html" class="cta-btn-outline">Create Mission Statement</a>
+        <a href="habits.html" class="cta-btn-outline">Track Sharpen the Saw</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

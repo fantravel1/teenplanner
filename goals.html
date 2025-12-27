@@ -67,6 +67,7 @@
           <li><a href="daily.html">Daily Planner</a></li>
           <li><a href="goals.html">Goals</a></li>
           <li><a href="habits.html">Habits</a></li>
+          <li><a href="7habits.html">7 Habits</a></li>
           <li><a href="examples.html">Examples</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="templates.html">Templates</a></li>
@@ -78,6 +79,40 @@
     </div>
   </header>
   <main class="main-content">
+    <!-- Mission Statement Section (Habit 2: Begin with the End in Mind) -->
+    <section class="section">
+      <div class="mission-statement-section">
+        <h2>Your Personal Mission Statement <span class="mission-badge">Habit 2</span></h2>
+        <p class="mission-intro">Based on "Begin with the End in Mind" - Define who you want to be and what you stand for. This becomes your compass for all your goals.</p>
+
+        <div class="mission-prompts">
+          <div class="mission-prompt">
+            <label for="missionValues">What do I value most?</label>
+            <textarea id="missionValues" placeholder="e.g., honesty, creativity, kindness, family, learning..." maxlength="200"></textarea>
+          </div>
+          <div class="mission-prompt">
+            <label for="missionStrengths">What am I good at?</label>
+            <textarea id="missionStrengths" placeholder="e.g., problem-solving, helping others, sports, art..." maxlength="200"></textarea>
+          </div>
+          <div class="mission-prompt">
+            <label for="missionDifference">How do I want to make a difference?</label>
+            <textarea id="missionDifference" placeholder="e.g., inspire others, create something new, help my community..." maxlength="200"></textarea>
+          </div>
+          <div class="mission-prompt">
+            <label for="missionFuture">Who do I want to become?</label>
+            <textarea id="missionFuture" placeholder="e.g., a leader, an innovator, someone who lifts others up..." maxlength="200"></textarea>
+          </div>
+        </div>
+
+        <div class="mission-output">
+          <h3>My Personal Mission Statement</h3>
+          <textarea id="missionStatement" placeholder="Write your mission statement here... Example: 'I will live with integrity, use my creativity to solve problems, and always lift up those around me. I am committed to continuous learning and making a positive impact in my community.'" maxlength="500"></textarea>
+          <button class="mission-save-btn" id="saveMissionBtn">Save Mission Statement</button>
+        </div>
+        <a href="7habits.html" class="matrix-learn-more" style="margin-top: 1.5rem; display: inline-block;">Learn more about Habit 2: Begin with the End in Mind →</a>
+      </div>
+    </section>
+
     <section class="section goals-section">
   <div class="goal-categories">
     <button class="goal-cat-btn active" data-category="All">All</button>
